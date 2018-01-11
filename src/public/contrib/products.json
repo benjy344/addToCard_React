@@ -1,0 +1,52 @@
+{
+	"items": [
+        {
+            "id": 0,
+            "name": "Article 1",
+            "price": 30,
+            "img": "http://via.placeholder.com/560x480/EF3435",
+            "available": true,
+            "details": "Lorem ipsum"
+        },
+        {
+            "id": 1,
+            "name": "Article 2",
+            "price": 20,
+            "img": "http://via.placeholder.com/560x480/EFEFEF",
+            "available": true,
+            "details": "Lorem ipsum"
+        },
+        {
+            "id": 2,
+            "name": "Article 3",
+            "price": 30,
+            "img": "http://via.placeholder.com/560x480/333420",
+            "available": true,
+            "details": "Lorem ipsum"
+        },
+        {
+            "id": 3,
+            "name": "Article 4",
+            "price": 10,
+            "img": "http://via.placeholder.com/560x480/333333",
+            "available": true,
+            "details": "Lorem ipsum"
+        },
+        {
+            "id": 4,
+            "name": "Article 5",
+            "price": 230,
+            "img": "http://via.placeholder.com/560x480/EA2534",
+            "available": true,
+            "details": "Lorem ipsum"
+        },
+        {
+            "id": 5,
+            "name": "Article 6",
+            "price": 130,
+            "img": "http://via.placeholder.com/560x480/12AB6A",
+            "available": false,
+            "details": "Lorem ipsum"
+        }
+    ]
+}
