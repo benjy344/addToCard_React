@@ -7,7 +7,7 @@ class Store extends React.Component {
   onAddProduct(_props) {
     let product = _props.product
     product.available = false
-    this.props.onAddProductCallback(this.props.items, product)
+    this.props.onAddProductCallback(product)
   }
 
   render() {

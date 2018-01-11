@@ -12,7 +12,10 @@ const initialState = {
 
 export function card(state = initialState, action) {
     switch (action.type) {
+        console.log("kjnkjnkjnkj")
         case ADD_TO_CARD:
+            console.log('youyou', state)
+            let tempCard = state
         	return Object.assign({}, state, {
                 card: action.data.card
             })

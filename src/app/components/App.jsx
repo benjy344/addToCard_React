@@ -9,7 +9,7 @@ import Store       from './Store'
 import Footer      from './Footer'
 
 // ACTIONS
-import { fetchProducts, addProduct, removeProduct } from '../actions/products'
+import { fetchProducts } from '../actions/products'
 import { addToCard, removeToCard } from '../actions/card'
 
 // REDUCER
@@ -28,11 +28,10 @@ class App extends React.Component {
         }
     }
 
-    onAddProduct(items, product) {
-        console.log('onAddProduct -- _props', items, product)
+    onAddProduct(product) {
+        console.log('onAddProduct -- _props', product)
 
-        this.props.addProduct(items)
-        //this.props.addToCard(product)
+        this.props.addToCard(product)
     }
 
     render() {
@@ -55,8 +54,6 @@ App.propTypes = {
     items:         PropTypes.array,
     card:          PropTypes.array,
     fetchProducts: PropTypes.func,
-    addProduct:    PropTypes.func,
-    removeProduct: PropTypes.func,
     addToCard:     PropTypes.func,
     removeToCard:  PropTypes.func
 }
@@ -81,8 +78,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchProducts: fetchProducts.bind(null, dispatch),
-        addProduct:    addProduct.bind(null, dispatch),
-        removeProduct: removeProduct.bind(null, dispatch),
         addToCard:     addToCard.bind(null, dispatch),
         removeToCard:  removeToCard.bind(null, dispatch)
     }

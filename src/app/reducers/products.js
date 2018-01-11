@@ -31,18 +31,7 @@ export function products(state = initialState, action) {
                 items: action.data.items,
                 card: action.data.card,
             })
-        case ADD_PRODUCT:
-            console.log('reducer - addProduct -- action', action)
-	        return Object.assign({}, state, {
-                items: action.data
-            })
-        case REMOVE_PRODUCT:
-	        return Object.assign({}, state, {
-                itemCount: action.data.items.length,
-                itemLoadState: PRODUCTS_LOADED,
-                items: action.data.items,
-                card: action.data.card
-            })
+
         default:
             return state
     }
