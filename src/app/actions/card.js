@@ -1,13 +1,10 @@
-
 // ACTIONS
 export const ADD_TO_CARD    = 'ADD_TO_CARD'
 export const REMOVE_TO_CARD = 'REMOVE_TO_CARD'
 export const PAYD           = 'PAYD'
 
 
-
 export function addToCard( dispatch, data ) {
-    console.log('addProduct -- data', data)
     dispatch(
     	{
     		type: ADD_TO_CARD,

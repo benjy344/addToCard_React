@@ -14,6 +14,7 @@ import { addToCard, removeToCard } from '../actions/card'
 
 // REDUCER
 import { PRODUCTS_NOT_LOADED, PRODUCTS_LOADING, PRODUCTS_LOADED } from '../reducers/products'
+import { CARD_NOT_LOADED, CARD_LOADING, CARD_LOADED } from '../reducers/card'
 
 class App extends React.Component {
 
@@ -29,8 +30,6 @@ class App extends React.Component {
     }
 
     onAddProduct(product) {
-        console.log('onAddProduct -- _props', product)
-
         this.props.addToCard(product)
     }
 
@@ -52,7 +51,7 @@ App.propTypes = {
     itemLoadState: PropTypes.number,
     itemCount:     PropTypes.number,
     items:         PropTypes.array,
-    card:          PropTypes.array,
+    card:          PropTypes.object,
     fetchProducts: PropTypes.func,
     addToCard:     PropTypes.func,
     removeToCard:  PropTypes.func
@@ -68,9 +67,9 @@ App.defaultProps = {
 const mapStateToProps = (state, ownProps) => {
     console.log('mapStateToProps', state, ownProps)
     return {
-        itemLoadState: state.itemLoadState,
-        itemCount: state.itemCount,
-        items: state.items,
+        itemLoadState: state.products.itemLoadState,
+        itemCount: state.products.itemCount,
+        items: state.products.items,
         card: state.card,
     }
 }

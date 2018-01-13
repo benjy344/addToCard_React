@@ -1,13 +1,20 @@
-import React 	        from 'react'
-import ReactDom         from 'react-dom'
-import { Provider }     from 'react-redux'
-import { createStore }  from 'redux'
-import { AppContainer } from 'react-hot-loader'
+import React 	                         from 'react'
+import ReactDom                          from 'react-dom'
+import { Provider }                      from 'react-redux'
+import { combineReducers, createStore }  from 'redux'
+import { AppContainer }                  from 'react-hot-loader'
 
-import App 		        from './components/App'
-import { products }     from './reducers/products'
+import App 		                         from './components/App'
+import { products }                      from './reducers/products'
+import { card }                          from './reducers/card'
 
-let store = createStore(products)
+
+const reducers = combineReducers({
+    products,
+    card
+})
+
+let store = createStore(reducers)
 
 const renderApp = () => {
 	ReactDom.render(

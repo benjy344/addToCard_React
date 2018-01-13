@@ -4,31 +4,35 @@ import {
 	PAYD
 } from '../actions/card'
 
+export const CARD_NOT_LOADED = 0
+export const CARD_LOADING    = 1
+export const CARD_LOADED     = 2
 
 // Defined a default state
 const initialState = {
-	card: []
+	items: [],
+    totalPrice:0
 }
 
 export function card(state = initialState, action) {
     switch (action.type) {
-        console.log("kjnkjnkjnkj")
         case ADD_TO_CARD:
-            console.log('youyou', state)
-            let tempCard = state
-        	return Object.assign({}, state, {
-                card: action.data.card
-            })
+            state.items.push(action.data)
+            state.totalPrice += action.data.price
+        	return Object.assign({}, state)
 
         case REMOVE_TO_CARD:
+            console.log('REMOVE_TO_CARD', state)
         	return Object.assign({}, state, {
                 card: action.data.card
             })
         case PAYD:
+            console.log('PAYD', state)
 	        return Object.assign({}, state, {
                 card: action.data.card
             })
         default:
-            return state;
+            console.log('DEFAULT', state)
+            return state
     }
 }
