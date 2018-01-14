@@ -12,7 +12,7 @@ let config = {
 		publicPath: '/src/public/'
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx', '.scss']
 	},
 	module: {
 		loaders: [
@@ -20,7 +20,13 @@ let config = {
 		      test: /\.(js|jsx)$/,
 		      exclude: /node_modules/,
 		      loader: ['react-hot-loader/webpack', 'babel-loader']
-		    }]
+		    },
+		    {
+                test: /\.scss/,
+                exclude: /node_modules/,
+                loader: "style-loader!css-loader!autoprefixer-loader!sass-loader"
+            }
+		]
 	},
 	plugins: [
 		new webpack.DefinePlugin({

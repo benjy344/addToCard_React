@@ -1,7 +1,6 @@
 import React       from 'react'
 import PropTypes   from 'prop-types'
 import { connect } from 'react-redux'
-//import _           from 'underscore'
 
 import Header      from './Header'
 import Card        from './Card'
@@ -14,7 +13,10 @@ import { addToCard, removeToCard } from '../actions/card'
 
 // REDUCER
 import { PRODUCTS_NOT_LOADED, PRODUCTS_LOADING, PRODUCTS_LOADED } from '../reducers/products'
-import { CARD_NOT_LOADED, CARD_LOADING, CARD_LOADED } from '../reducers/card'
+
+
+// CSS
+import '../scss/main'
 
 class App extends React.Component {
 
@@ -33,10 +35,19 @@ class App extends React.Component {
         this.props.addToCard(product)
     }
 
+    displayLoader() {
+        if (this.props.itemLoadState == PRODUCTS_NOT_LOADED) {
+            return (
+                    <div className="loading">LOADING</div>
+                )
+        }
+    }
+
     render() {
         console.log('render app')
         return (
             <div>
+                {this.displayLoader()}
                 <Header />
                 <Card card={this.props.card}/>
                 <Store items={this.props.items} onAddProductCallback={this.onAddProduct.bind(this)}/>
