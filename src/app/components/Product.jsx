@@ -11,7 +11,7 @@ class Product extends React.Component {
 		}
 	}
 
-	addToCard() {
+	addToCart() {
 		this.setState({
             available: false
         })
@@ -22,7 +22,7 @@ class Product extends React.Component {
 	    return (
 	      <div className={"product"+(this.state.available? " " : " unavailable")}>
 	      	<img src={this.props.product.img}/>
-	        <button onClick={this.addToCard.bind(this)} disabled={!this.state.available} >add to card</button>
+	        <button onClick={this.addToCart.bind(this)} disabled={!this.state.available} >add to cart</button>
 	      </div>
 	    )
   	}
@@ -30,13 +30,12 @@ class Product extends React.Component {
 }
 
 Product.propTypes = {
-    item: PropTypes.object,
-    selectCallback: PropTypes.func
+    product: PropTypes.object,
+    onAddProductCallback: PropTypes.func
 };
 
 Product.defaultProps = {
-    items: {},
-    itemCount: 0
+    product: {}
 };
 
 export default Product;

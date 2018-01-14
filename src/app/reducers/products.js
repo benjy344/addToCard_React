@@ -28,8 +28,7 @@ export function products(state = initialState, action) {
         	return Object.assign({}, state, {
                 itemCount: action.data.items.length,
                 itemLoadState: PRODUCTS_LOADED,
-                items: action.data.items,
-                card: action.data.card,
+                items: action.data.items
             })
 
         default:

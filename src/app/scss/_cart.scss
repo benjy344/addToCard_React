@@ -20,26 +20,15 @@
 	visibility: visible;
 }
 
-.cart-trigger,
 .cart {
 	position: fixed;
 	bottom: 0px;
-	left: 12vh;
-	transition: transform .2s;
-	/* Force Hardware Acceleration in WebKit */
-	transform: translateZ(0);
+	// left: 12vh;
+	left: -440px;
+	transition: $transition;
 	-webkit-backface-visibility: hidden;
 	will-change: transform;
 	backface-visibility: hidden;
-
-	.empty & {
-		/* hide cart */
-		transform: translateY(150px);
-	}
-
-	@include MQ(L) {
-		bottom: 40px;
-	}
 }
 
 
@@ -61,8 +50,7 @@
 		overflow: hidden;
 		height: 72px;
 		width: 72px;
-		transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
-		transition-timing-function: cubic-bezier(.67,.17,.32,.95);
+
 		background: $color-3;
 		box-shadow: 0 4px 30px rgba(#000, .17);
 		pointer-events: auto;
@@ -133,8 +121,7 @@
 		display: block;
 		height: 72px;
 		line-height: 72px;
-		margin-right: 72px;
-		background: $color-2;
+		background: $primary-color;
 		color: rgba($color-3, 0);
 		text-align: center;
 		font-size: 1.8rem;
@@ -142,7 +129,7 @@
 		transition: all .2s 0s;
 
 		&:hover {
-			background: lighten($color-2, 3%);
+			background: lighten($primary-color, 3%);
 		}
 
 		em {
@@ -196,7 +183,7 @@
 			&.deleted {
 				/* this class is added to an item when it is removed form the cart */
 				position: absolute;
-				left: 1.4em;
+				left: 500px;
 				width: calc(100% - 2.8em);
 				opacity: 0;
 				animation: item-slide-out .3s forwards;
@@ -227,6 +214,7 @@
 
 		img {
 			display: block;
+			width:100%;
 		}
 	}
 
@@ -349,6 +337,11 @@
 
 	.cart-open & header {
 		transition: opacity .2s .2s;
+	}
+
+	.cart-open & {
+		left: 12vh;
+		transition: $transition;
 	}
 
 	.cart-open & .body {

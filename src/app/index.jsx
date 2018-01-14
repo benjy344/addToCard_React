@@ -6,12 +6,12 @@ import { AppContainer }                  from 'react-hot-loader'
 
 import App 		                         from './components/App'
 import { products }                      from './reducers/products'
-import { card }                          from './reducers/card'
+import { cart }                          from './reducers/cart'
 
 
 const reducers = combineReducers({
     products,
-    card
+    cart
 })
 
 let store = createStore(reducers)
