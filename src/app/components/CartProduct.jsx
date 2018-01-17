@@ -20,8 +20,9 @@ class CartProduct extends React.Component {
 	}
 
   	render() {
+  		console.log('product '+this.props.product.name, this.state.deleted)
 	    return (
-	    	<li className={"product "+(this.state.deleted?'deleted':'') }>
+	    	<li className={"product "}>
 	    	  <div className="product-image">
 	    	    <a href="#0">
 	    	      <img src={this.props.product.img} alt="placeholder" />

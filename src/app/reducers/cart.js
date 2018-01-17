@@ -22,23 +22,19 @@ export function cart(state = initialState, action) {
         	return Object.assign({}, state)
 
         case REMOVE_TO_CART:
-            console.log('REMOVE_TO_CARt', action)
             state.items.splice(action.data, 1)
             let price = 0
             for(let item of state.items) {
-                console.log('kjbkjb', item)
                 price += item.price
             }
             state.totalPrice = price
         	return Object.assign({}, state)
 
         case PAYD:
-            console.log('PAYD', state)
 	        return Object.assign({}, state, {
                 cart: action.data.cart
             })
         default:
-            console.log('DEFAULT', state)
             return state
     }
 }
