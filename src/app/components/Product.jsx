@@ -1,6 +1,10 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 
+import Store         from '../generalStore/Store'
+import ProductAction from '../generalStore/Store'
+import { addToCart } from '../actions/cart'
+
 class Product extends React.Component {
 
 
@@ -12,10 +16,7 @@ class Product extends React.Component {
 	}
 
 	addToCart() {
-		this.setState({
-            available: false
-        })
-		this.props.onAddProductCallback(this.props)
+		Store.dispatch( addToCart(this.props.product) )
 	}
 
   	render() {
@@ -40,11 +41,7 @@ class Product extends React.Component {
 
 Product.propTypes = {
     product: PropTypes.object,
-    onAddProductCallback: PropTypes.func
-};
+}
 
-Product.defaultProps = {
-    product: {}
-};
 
-export default Product;
+export default Product

@@ -18,7 +18,6 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        {/*<a href="#"><img src="http://via.placeholder.com/200x60/EF3435"/></a>*/}
         <button className={"hamburger"+(this.state.menuOpen?' is-active':'')} type="button" aria-label="Menu" aria-controls="navigation" onClick={this.onToggle.bind(this)}>
           <span className="hamburger-box">
             <span className="hamburger-inner"></span>

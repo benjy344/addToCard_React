@@ -1,6 +1,6 @@
 @import 'animations';
 
-.cart-container::before {
+.cart-container .overlay {
 	/* dark bg layer visible when the cart is open */
 	content: '';
 	position: fixed;
@@ -15,7 +15,7 @@
 	transition: opacity .4s, visibility .4s;
 }
 
-.cart-container.cart-open::before {
+.cart-container.cart-open .overlay {
 	opacity: 1;
 	visibility: visible;
 }

@@ -1,25 +1,16 @@
-import React 	                         from 'react'
-import ReactDom                          from 'react-dom'
-import { Provider }                      from 'react-redux'
-import { combineReducers, createStore }  from 'redux'
-import { AppContainer }                  from 'react-hot-loader'
+import React 	        from 'react'
+import ReactDom         from 'react-dom'
+import { Provider }     from 'react-redux'
+import { AppContainer } from 'react-hot-loader'
 
-import App 		                         from './components/App'
-import { products }                      from './reducers/products'
-import { cart }                          from './reducers/cart'
+import Store            from './generalStore/Store'
+import App 		        from './components/App'
 
-
-const reducers = combineReducers({
-    products,
-    cart
-})
-
-let store = createStore(reducers)
 
 const renderApp = () => {
 	ReactDom.render(
 		<AppContainer>
-			<Provider store={store}>
+			<Provider store={Store}>
 				<App />
 			</Provider>
 		</AppContainer>,
@@ -28,7 +19,7 @@ const renderApp = () => {
 }
 
 if (module.hot) {
-  module.hot.accept('./components/App', renderApp)
+  	module.hot.accept('./components/App', renderApp)
 }
 
 renderApp()

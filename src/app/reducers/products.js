@@ -11,7 +11,7 @@ export const PRODUCTS_LOADING    = 1
 export const PRODUCTS_LOADED     = 2
 
 // Defined a default state
-const initialState = {
+export const initialState = {
 	itemCount: 0,
 	itemLoadState: 0,
 	items: []

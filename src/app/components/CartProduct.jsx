@@ -38,7 +38,6 @@ class CartProduct extends React.Component {
 	    	</li>
 	    )
   	}
-
 }
 
 CartProduct.propTypes = {

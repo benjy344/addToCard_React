@@ -16,3 +16,8 @@ export function fetchProducts( dispatch ) {
             })
         })
 }
+
+// export function setDesabled( dispatch ) {
+
+//     dispatch({type: FETCH_PRODUCTS})
+// }

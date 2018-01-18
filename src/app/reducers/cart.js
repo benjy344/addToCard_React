@@ -9,7 +9,7 @@ export const CART_LOADING    = 1
 export const CART_LOADED     = 2
 
 // Defined a default state
-const initialState = {
+export const initialState = {
 	items: [],
     totalPrice:0
 }

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import Header      from './Header'
 import Cart        from './Cart'
-import Store       from './Store'
+import StoreComponent       from './Store'
 import Footer      from './Footer'
 
 // ACTIONS
@@ -54,7 +54,7 @@ class App extends React.Component {
                 {this.displayLoader()}
                 <Header />
                 <Cart cart={this.props.cart} onRemoveProductCallback={this.onRemoveProduct.bind(this)}/>
-                <Store items={this.props.items} onAddProductCallback={this.onAddProduct.bind(this)}/>
+                <StoreComponent onAddProductCallback={this.onAddProduct.bind(this)}/>
                 <Footer />
             </div>
           )

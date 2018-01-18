@@ -1,20 +1,14 @@
-import React   from 'react'
-import Product from './Product'
+import React       from 'react'
+import Product     from './Product'
+import { connect } from 'react-redux'
 
-class Store extends React.Component {
-
-
-  onAddProduct(_props) {
-    let product = _props.product
-    product.available = false
-    this.props.onAddProductCallback(product)
-  }
+class StoreComponent extends React.Component {
 
   render() {
     return (
       <div className="store">
         {this.props.items.map((data, index) => (
-            <Product key={index} id={index} product={data} onAddProductCallback={this.onAddProduct.bind(this)} />
+            <Product key={index} id={index} product={data} />
         ))}
       </div>
     )
@@ -22,4 +16,10 @@ class Store extends React.Component {
 
 }
 
-export default Store
+const mapStateToProps = (GeneralStoreToMap) => {
+  return  {
+            items: GeneralStoreToMap.products.items
+          }
+}
+
+export default connect(mapStateToProps)(StoreComponent)

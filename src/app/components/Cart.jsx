@@ -36,13 +36,12 @@ class Cart extends React.Component {
           <a href="#" className="fa fa-sign-in"></a>
         </aside>
         <div className={"cart-container "+(this.state.cartOpen?'cart-open': '')}>
+          <span className="overlay" onClick={this.toggleCart.bind(this)}></span>
           <div className="cart">
             <div className="wrapper">
               <header>
                 <h2>Cart</h2>
-                <span className="undo">Item removed. <a href="#0">Undo</a></span>
               </header>
-
               <div className="body">
                 <ul>
                   {this.props.cart.items.map((data, index) => (
