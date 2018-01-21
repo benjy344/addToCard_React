@@ -1,6 +1,8 @@
 import React        from 'react'
 import CartProduct  from './CartProduct'
 
+import { connect } from 'react-redux'
+
 class Cart extends React.Component {
 
   constructor(props) {
@@ -45,7 +47,7 @@ class Cart extends React.Component {
               <div className="body">
                 <ul>
                   {this.props.cart.items.map((data, index) => (
-                      <CartProduct key={index} id={index} product={data} onRemoveProductCallback={this.props.onRemoveProductCallback.bind(this)}/>
+                      <CartProduct key={index} id={index} product={data}/>
                   ))}
                 </ul>
               </div>
@@ -62,9 +64,13 @@ class Cart extends React.Component {
 
 }
 
-export default Cart
+const mapStateToProps = (GeneralStoreToMap) => {
+  return  {
+            cart: GeneralStoreToMap.cart
+          }
+}
 
-
+export default connect(mapStateToProps)(Cart)
 
 
 

@@ -1,8 +1,9 @@
+import _ from 'underscore'
 import {
 	FETCH_PRODUCTS,
 	RECEIVE_PRODUCTS,
 	REMOVE_PRODUCT,
-	ADD_PRODUCT
+	UPDATE_PRODUCTS
 } from '../actions/products'
 
 // Defined Loading state
@@ -30,6 +31,12 @@ export function products(state = initialState, action) {
                 itemLoadState: PRODUCTS_LOADED,
                 items: action.data.items
             })
+
+        case UPDATE_PRODUCTS:
+            let tempItems = state.items
+            let productToUpdate = _.findWhere(tempItems, {id:action.data.id})
+            productToUpdate.available = true
+            return Object.assign({}, state, {items:tempItems, timetemp: new Date()})
 
         default:
             return state

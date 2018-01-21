@@ -1,6 +1,10 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 
+import Store            from '../generalStore/Store'
+import { removeToCart } from '../actions/cart'
+import { updateProducts } from '../actions/products'
+
 class CartProduct extends React.Component {
 
 
@@ -11,16 +15,14 @@ class CartProduct extends React.Component {
 		}
 	}
 	removeToCart(index) {
-		console.log(index)
 		this.setState({
             deleted: true
         })
-
-		this.props.onRemoveProductCallback(index)
+        Store.dispatch(removeToCart(index))
+        Store.dispatch(updateProducts(this.props.product))
 	}
 
   	render() {
-  		console.log('product '+this.props.product.name, this.state.deleted)
 	    return (
 	    	<li className={"product "}>
 	    	  <div className="product-image">

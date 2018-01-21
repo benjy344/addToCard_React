@@ -18,7 +18,8 @@ class StoreComponent extends React.Component {
 
 const mapStateToProps = (GeneralStoreToMap) => {
   return  {
-            items: GeneralStoreToMap.products.items
+            items: GeneralStoreToMap.products.items,
+            timetemp: GeneralStoreToMap.products.timetemp
           }
 }
 

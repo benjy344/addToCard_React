@@ -30,12 +30,7 @@ class App extends React.Component {
             this.props.fetchProducts()
         }
     }
-
-    onAddProduct(product) {
-        this.props.addToCart(product)
-    }
     onRemoveProduct(index) {
-        console.log('index -- ', index)
         this.props.removeToCart(index)
     }
 
@@ -48,13 +43,12 @@ class App extends React.Component {
     }
 
     render() {
-        console.log('render app')
         return (
             <div>
                 {this.displayLoader()}
                 <Header />
-                <Cart cart={this.props.cart} onRemoveProductCallback={this.onRemoveProduct.bind(this)}/>
-                <StoreComponent onAddProductCallback={this.onAddProduct.bind(this)}/>
+                <Cart/>
+                <StoreComponent/>
                 <Footer />
             </div>
           )
@@ -80,12 +74,12 @@ App.defaultProps = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('mapStateToProps', state, ownProps)
+    console.log('mapStateToProps')
     return {
         itemLoadState: state.products.itemLoadState,
         itemCount: state.products.itemCount,
         items: state.products.items,
-        cart: state.cart,
+        cart: state.cart
     }
 }
 
