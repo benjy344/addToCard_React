@@ -1,5 +1,4 @@
 import React     from 'react'
-import PropTypes from 'prop-types'
 
 import Store         from '../generalStore/Store'
 import { addToCart } from '../actions/cart'
@@ -12,15 +11,6 @@ class Product extends React.Component {
 		this.state = {
 			available: this.props.product.available
 		}
-		console.log('construct')
-	}
-	componentWillUpdate() {
-		if(this.state.available != this.props.product.available) {
-			this.setState({
-				available: this.props.product.available
-			})
-		}
-
 	}
 
 	addToCart() {
@@ -28,11 +18,10 @@ class Product extends React.Component {
 		this.setState({
 			available: this.props.product.available
 		})
-		Store.dispatch( addToCart(this.props.product) )
+		// Want to update the cart
 	}
 
   	render() {
-  		console.log('rennnnnnder')
 	    return (
 	      <div className={"product"+(this.state.available? " " : " unavailable")}>
 	      	<img src={this.props.product.img}/>
@@ -50,10 +39,6 @@ class Product extends React.Component {
 	    )
   	}
 
-}
-
-Product.propTypes = {
-    product: PropTypes.object
 }
 
 

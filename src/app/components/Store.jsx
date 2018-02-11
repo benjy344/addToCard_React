@@ -16,10 +16,4 @@ class StoreComponent extends React.Component {
 
 }
 
-const mapStateToProps = (GeneralStoreToMap) => {
-  return  {
-            items: GeneralStoreToMap.products.items,
-          }
-}
-
-export default connect(mapStateToProps)(StoreComponent)
+export default StoreComponent

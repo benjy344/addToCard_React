@@ -1,9 +1,5 @@
 import React     from 'react'
-import PropTypes from 'prop-types'
-
-import Store            from '../generalStore/Store'
-import { removeToCart } from '../actions/cart'
-import { updateProducts } from '../actions/products'
+import Store     from '../generalStore/Store'
 
 class CartProduct extends React.Component {
 
@@ -18,13 +14,12 @@ class CartProduct extends React.Component {
 		this.setState({
             deleted: true
         })
-        Store.dispatch(removeToCart(index))
-        Store.dispatch(updateProducts(this.props.product))
+        this.props.decrementCounter()
 	}
 
   	render() {
 	    return (
-	    	<li className={"product "}>
+	    	<li className={"product "+(this.state.deleted?'deleted':'')}>
 	    	  <div className="product-image">
 	    	    <a href="#0">
 	    	      <img src={this.props.product.img} alt="placeholder" />
@@ -40,14 +35,6 @@ class CartProduct extends React.Component {
 	    	</li>
 	    )
   	}
-}
-
-CartProduct.propTypes = {
-    product: PropTypes.object
-}
-
-CartProduct.defaultProps = {
-    product: {}
 }
 
 export default CartProduct
