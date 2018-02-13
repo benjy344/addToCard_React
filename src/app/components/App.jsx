@@ -3,7 +3,7 @@ import React from 'react'
 import Counter from './Counter'
 
 // CSS
-import '../scss/main'
+import '../scss/counter'
 
 class App extends React.Component {
 

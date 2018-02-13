@@ -1,6 +1,6 @@
 import React from 'react'
 
-class App extends React.Component {
+class Counter extends React.Component {
 
 	constructor(props) {
 		super(props)
@@ -13,16 +13,22 @@ class App extends React.Component {
 			counter: this.state.counter + this.props.increment
 		})
 	}
+	decrement() {
+		this.setState({
+			counter: ((this.state.counter - this.props.increment) < 0 ? 0 : this.state.counter - this.props.increment)
+		})
+	}
 
     render() {
         return (
             <div className="counter">
-            	<span>{this.state.counter}</span>
+            	<h1>{this.state.counter}</h1>
             	<button onClick={this.increment.bind(this)} >+{this.props.increment}</button>
+            	<button onClick={this.decrement.bind(this)} >-{this.props.increment}</button>
             </div>
           )
     }
 
 }
 
-export default App
+export default Counter
