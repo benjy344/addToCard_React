@@ -3,29 +3,18 @@ import React from 'react'
 class Counter extends React.Component {
 
 	constructor(props) {
-		super(props)
-		this.state = {
-			counter: this.props.start
-		}
+		// le constructeur
 	}
 	increment() {
-		this.setState({
-			counter: this.state.counter + this.props.increment
-		})
+		// Incrementer de plus la value passée en props
 	}
 	decrement() {
-		this.setState({
-			counter: ((this.state.counter - this.props.increment) < 0 ? 0 : this.state.counter - this.props.increment)
-		})
+		// Décrementer de moins la value passée en props (pas en negatif)
 	}
 
     render() {
         return (
-            <div className="counter">
-            	<h1>{this.state.counter}</h1>
-            	<button onClick={this.increment.bind(this)} >+{this.props.increment}</button>
-            	<button onClick={this.decrement.bind(this)} >-{this.props.increment}</button>
-            </div>
+            // Rendre le conteur
           )
     }
 

@@ -1,12 +1,16 @@
 import React from 'react'
 
+import Counter from './Counter'
+
 // CSS
 import '../scss/counter'
 
 class App extends React.Component {
 
     render() {
-        // rendre un conter avec un param start & increment
+        return (
+            <Counter start={0} increment={20} />
+          )
     }
 
 }
