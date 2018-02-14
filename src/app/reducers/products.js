@@ -33,10 +33,13 @@ export function products(state = initialState, action) {
             })
 
         case UPDATE_PRODUCTS:
-            let tempItems = state.items
-            let productToUpdate = _.findWhere(tempItems, {id:action.data.id})
-            productToUpdate.available = true
-            return Object.assign({}, state, {items:tempItems, timetemp: new Date()})
+            const tempItems = state.items.map(item => {
+                if (item.id === action.data.id) {
+                    item.available = true
+                }
+                return item
+            })
+            return Object.assign({}, state, {items:tempItems})
 
         default:
             return state

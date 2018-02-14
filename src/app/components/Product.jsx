@@ -12,7 +12,6 @@ class Product extends React.Component {
 		this.state = {
 			available: this.props.product.available
 		}
-		console.log('construct')
 	}
 	componentWillUpdate() {
 		if(this.state.available != this.props.product.available) {
@@ -32,7 +31,6 @@ class Product extends React.Component {
 	}
 
   	render() {
-  		console.log('rennnnnnder')
 	    return (
 	      <div className={"product"+(this.state.available? " " : " unavailable")}>
 	      	<img src={this.props.product.img}/>

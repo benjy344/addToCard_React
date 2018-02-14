@@ -8,8 +8,7 @@ import StoreComponent       from './Store'
 import Footer      from './Footer'
 
 // ACTIONS
-import { fetchProducts }            from '../actions/products'
-import { addToCart, removeToCart }  from '../actions/cart'
+import { fetchProducts } from '../actions/products'
 
 // REDUCER
 import { PRODUCTS_NOT_LOADED, PRODUCTS_LOADING, PRODUCTS_LOADED } from '../reducers/products'
@@ -62,8 +61,6 @@ App.propTypes = {
     items:         PropTypes.array,
     cart:          PropTypes.object,
     fetchProducts: PropTypes.func,
-    addToCart:     PropTypes.func,
-    removeToCart:  PropTypes.func
 }
 
 App.defaultProps = {
@@ -74,7 +71,6 @@ App.defaultProps = {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('mapStateToProps')
     return {
         itemLoadState: state.products.itemLoadState,
         itemCount: state.products.itemCount,
@@ -86,8 +82,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchProducts: fetchProducts.bind(null, dispatch),
-        addToCart:     addToCart.bind(null, dispatch),
-        removeToCart:  removeToCart.bind(null, dispatch)
     }
 }
 
