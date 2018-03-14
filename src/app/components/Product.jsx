@@ -1,7 +1,5 @@
 import React     from 'react'
 
-import Store         from '../generalStore/Store'
-import { addToCart } from '../actions/cart'
 
 class Product extends React.Component {
 
@@ -14,7 +12,7 @@ class Product extends React.Component {
 	}
 
 	addToCart() {
-		this.props.product.available = false
+		//this.props.product.available = false
 		this.setState({
 			available: this.props.product.available
 		})

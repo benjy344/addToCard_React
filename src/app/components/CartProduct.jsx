@@ -1,5 +1,4 @@
 import React     from 'react'
-import Store     from '../generalStore/Store'
 
 class CartProduct extends React.Component {
 

@@ -29,6 +29,7 @@ class Cart extends React.Component {
   decrementCounter() {
     this.setState({
       counter: this.state.counter - 1
+
     })
   }
 
